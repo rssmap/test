@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Hello</title>
+<script language = "javascript">
+    function changeText(newMessage) {
+        document.getElementById("textModified").innerHTML = "<font color = red>" + newMessage + "</font>";
+    }
+</script>
+</head>
+
+<body onclick = "changeText('Viu?')">
+    <h1>Hello World - DIV</h1> <br>
+    <div id = "textModified">
+        Este texto vai mudar se você clicar em qualquer lugar.
+    </div>
+</body>
+</html>
