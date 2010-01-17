@@ -1,0 +1,69 @@
+<html>
+<head>
+   <title>Página inicial</title>
+
+   <script language = "javascript">
+         
+      var XMLHttpRequestObject = false;
+        
+      if (window.XMLHttpRequest) {
+         XMLHttpRequestObject = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+         XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+
+      function getData(dataSource, divID) {
+         
+         if(XMLHttpRequestObject) {
+            var obj = document.getElementById(divID);
+            XMLHttpRequestObject.open("GET", dataSource);
+            XMLHttpRequestObject.onreadystatechange = function() {
+               if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
+                  obj.innerHTML = XMLHttpRequestObject.responseText;
+               }
+            }
+            XMLHttpRequestObject.send(null);
+         }
+      }
+   </script>
+
+
+</head>
+<body>
+   <table width="700" height="700" cellspacing="0" cellpadding="12" border="0">
+
+      <!----------TOPO---------->
+      <tr width="700" height="100"> <td bgcolor=#000333  width="700" height="100" colspan="2">
+
+         <font style="font-family:Arial;color:white;text-align:right;font-size:20"><b>&nbsp;&nbsp;Hello AJAX!</b></font>
+
+      </td></tr>
+      <!----------FIM-TOPO---------->
+
+      <tr width="700" height="600">
+            
+
+         <!----------MENU-ESQUERDA---------->
+         <td width="20%" height="600" bgcolor=black valign="top">
+
+            <font style="font-family:Arial;color:white;text-align:right;font-size:12">
+            <a onmouseover="getData('page1.txt','main')"> &nbsp;&nbsp;Página 1 </a><br>
+            <a onmouseover="getData('page2.txt','main')"> &nbsp;&nbsp;Página 2 </a>
+            </font>                
+         </td>
+         <!----------FIM-MENU-ESQUERDA---------->
+
+
+         <!----------PRINCIPAL---------->
+         <td width="80%" height="600" bgcolor=white valign="top">
+         <div id="main">
+            Passe o mouse nos coisos ao lado!
+                
+         <div></td>
+         <!----------FIM-PRINCIPAL---------->
+
+      </tr>
+   </table>
+
+</body>
+</html>
